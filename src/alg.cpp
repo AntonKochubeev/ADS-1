@@ -7,7 +7,7 @@ bool checkPrime(uint64_t value) {
 if (value <= 1) {
         return false;
     }
-    for (uint64_t i = 2; i <= sqrt(value); ++i) {
+    for (uint64_t i = 2; i*i <= value; ++i) {
         if (value % i == 0) {
             return false;
         }
@@ -36,11 +36,11 @@ uint64_t num = value + 1;
 }
 
 uint64_t sumPrime(uint64_t hbound) {
- uint64_t sum = 0;
-    for (uint64_t i = 2; i < hbound; ++i) {
-        if (checkPrime(i)) {
-            sum += i;
-        }
+  uint64_t sum = 0;
+  for (uint64_t i = 2; i < hbound; ++i) {
+    if (checkPrime(i)) {
+      sum += i;
     }
-    return sum;
+  }
+  return sum;
 }
